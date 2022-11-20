@@ -44,7 +44,7 @@ public class OrderService {
     }
 
     public DeliveryPartner getDeliveryPartnerById(String id){
-        return deliveryPartnerRepository.getDeliveryPartner().get(id);
+        return deliveryPartnerRepository.getDeliveryPartner().getOrDefault(id, new DeliveryPartner());
     }
 
     public int getOrdersByPartner(String id){
@@ -106,7 +106,8 @@ public class OrderService {
         }
         int mins = curr % 60;
         int hrs = curr / 60;
-        String ans = hrs + ":" + mins;
+        String ans = "";
+        ans = hrs + ":" + mins;
         return  ans;
     }
 

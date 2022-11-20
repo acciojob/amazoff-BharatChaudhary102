@@ -16,7 +16,7 @@ public class OrderRepository {
     }
 
     public Order getOrderById(String orderId){
-        return orders.getOrDefault(orderId, null);
+        return orders.getOrDefault(orderId, new Order());
     }
 
     public void deleteOrder(String orderId){
