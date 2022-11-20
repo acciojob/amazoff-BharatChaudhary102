@@ -30,8 +30,8 @@ public class OrderService {
         HashMap<String, Order> orders = orderRepository.getOrders();
         HashMap<String, DeliveryPartner> deliveryPartners = deliveryPartnerRepository.getDeliveryPartner();
 
-        Order order = orders.get(orderId);
-        DeliveryPartner deliveryPartner = deliveryPartners.get(deliveryId);
+        Order order = orders.getOrDefault(orderId, new Order());
+        DeliveryPartner deliveryPartner = deliveryPartners.getOrDefault(deliveryId, new DeliveryPartner());
 
         Integer numberOfOrders = deliveryPartner.getNumberOfOrders();
         numberOfOrders++;
